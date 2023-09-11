@@ -9,6 +9,7 @@ packages = [{include = "rpi_apa102_led_server"}]
 [tool.poetry.dependencies]
 python = "^3.11"
 apa102-pi = "^2.5.1"
+fastapi = {extras = ["all"], version = "^0.103.1"}
 
 
 [build-system]
