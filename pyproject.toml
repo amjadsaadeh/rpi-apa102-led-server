@@ -12,6 +12,9 @@ apa102-pi = "^2.5.1"
 fastapi = {extras = ["all"], version = "^0.103.1"}
 
 
+[tool.poetry.group.dev.dependencies]
+black = "^23.9.1"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
