@@ -35,10 +35,10 @@ api.add_resource(LEDDevice, "/led/<int:led_id>")
 
 # Helpers
 def check_led_range(led_id: int) -> None:
-    if led_id < 0 or led_id > LEDDevice.NUM_LEDS:
+    if led_id < 0 or led_id >= LEDDevice.NUM_LEDS:
         abort(
             404,
-            description=f"LED with id {led_id} not found. It needs to be in the range betweeb 0 and {NUM_LEDS}.",
+            description=f"LED with id {led_id} not found. It needs to be in the range betweeb 0 and {LEDDevice.NUM_LEDS}.",
         )
 
 
