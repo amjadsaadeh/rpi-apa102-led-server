@@ -11,6 +11,8 @@ python = "^3.11"
 apa102-pi = "^2.5.1"
 flask = "^2.3.3"
 flask-restful = "^0.3.10"
+gunicorn = "^21.2.0"
+rpi-gpio = "^0.7.1"
 
 
 [tool.poetry.group.dev.dependencies]
