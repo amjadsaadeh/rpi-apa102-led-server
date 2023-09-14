@@ -13,13 +13,13 @@ class LEDDevice(Resource):
     def get(self, led_id: int) -> dict:
         check_led_range(led_id)
 
-        led_color = dev.get_pixel(led_id)
+        led_color = self.dev.get_pixel(led_id)
         return led_color
 
     def post(self, led_id: int) -> dict:
         check_led_range(led_id)
         color = request.form["data"]
-        dev.set_pixel(
+        self.dev.set_pixel(
             led_id,
             color["red"],
             color["green"],
