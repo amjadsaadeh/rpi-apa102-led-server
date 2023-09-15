@@ -19,27 +19,16 @@ class LEDDevice(Resource):
     def post(self, led_id: int) -> dict:
         check_led_range(led_id)
         parser = reqparse.RequestParser()
+        parser.add_argument("red", type=int, required=True, help="red cannot be blank")
         parser.add_argument(
-            "red", type=int, location="args", required=True, help="red cannot be blank"
+            "blue", type=int, required=True, help="blue cannot be blank"
         )
         parser.add_argument(
-            "blue",
-            type=int,
-            location="args",
-            required=True,
-            help="blue cannot be blank",
-        )
-        parser.add_argument(
-            "green",
-            type=int,
-            location="args",
-            required=True,
-            help="green cannot be blank",
+            "green", type=int, required=True, help="green cannot be blank"
         )
         parser.add_argument(
             "bright_percent",
             type=int,
-            location="args",
             required=True,
             help="bright_percent cannot be blank",
         )
