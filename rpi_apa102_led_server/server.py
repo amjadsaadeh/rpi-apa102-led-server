@@ -40,7 +40,7 @@ class LEDDevice(Resource):
             color["blue"],
             bright_percent=color["bright_percent"],
         )
-
+        self.dev.show()
         return {"status": "ok"}
 
 
