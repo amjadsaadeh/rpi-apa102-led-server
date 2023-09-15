@@ -8,7 +8,7 @@ api = Api(app)
 
 class LEDDevice(Resource):
     NUM_LEDS = 3
-    dev = apa102.APA102(num_led=NUM_LEDS)
+    dev = apa102.APA102(num_led=NUM_LEDS, global_brightness=31)
 
     def get(self, led_id: int) -> dict:
         check_led_range(led_id)
