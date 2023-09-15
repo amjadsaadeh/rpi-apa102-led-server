@@ -1,6 +1,6 @@
 from apa102_pi.driver import apa102
 from flask import Flask, abort, request, jsonify
-from flask_restful import Resource, Api
+from flask_restful import Resource, Api, reqparse
 
 app = Flask(__name__)
 api = Api(app)
@@ -18,7 +18,32 @@ class LEDDevice(Resource):
 
     def post(self, led_id: int) -> dict:
         check_led_range(led_id)
-        color = request.form["data"]
+        parser = reqparse.RequestParser()
+        parser.add_argument(
+            "red", type=int, location="args", required=True, help="red cannot be blank"
+        )
+        parser.add_argument(
+            "blue",
+            type=int,
+            location="args",
+            required=True,
+            help="blue cannot be blank",
+        )
+        parser.add_argument(
+            "green",
+            type=int,
+            location="args",
+            required=True,
+            help="green cannot be blank",
+        )
+        parser.add_argument(
+            "bright_percent",
+            type=int,
+            location="args",
+            required=True,
+            help="bright_percent cannot be blank",
+        )
+        color = parser.parse_args()
         self.dev.set_pixel(
             led_id,
             color["red"],
