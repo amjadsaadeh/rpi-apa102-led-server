@@ -28,7 +28,7 @@ class LEDDevice(Resource):
         )
         parser.add_argument(
             "bright_percent",
-            type=int,
+            type=float,
             required=True,
             help="bright_percent cannot be blank",
         )
