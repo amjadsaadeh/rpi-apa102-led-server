@@ -43,6 +43,11 @@ class LEDDevice(Resource):
         self.dev.show()
         return {"status": "ok"}
 
+    def delete(self, led_id: int) -> dict:
+        self.dev.set_pixel(led_id, 0, 0, 0, bright_percent=0)
+        self.dev.show()
+        return {"status": "ok"}
+
 
 api.add_resource(LEDDevice, "/led/<int:led_id>")
 
