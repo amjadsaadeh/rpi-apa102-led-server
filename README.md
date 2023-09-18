@@ -31,4 +31,17 @@ The server exposes an `/led` endpoint for the `get` and `post` method.
 
 Running a `get` request on `/led/<led_id>` returns the current state of the given led.
 
+```bash
+$ curl <server name>:8000/led/<led_id>
+{"red": 0, "green": 0, "blue": 0, "brightness": 0, "bright_percent": 0.0}
+```
+
+## `post` method
+
+Setting a LED color is done via the `post` method on `/led/<led_id>`
+
+```bash
+$ curl -H "Content-Type: application/json" -d '{"red": "50", "green": "50", "blue": "100", "bright_percent": "50"}' -X POST <server name>:8000/led/<led_id>
+{"status": "ok"}
+```
 
